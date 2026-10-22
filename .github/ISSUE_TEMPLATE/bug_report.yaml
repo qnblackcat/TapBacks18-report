@@ -67,8 +67,8 @@ body:
     attributes:
       label: '"Native emoji tapbacks" in the tweak settings'
       options:
-        - Off (default)
-        - On
+        - "Off (default)"
+        - "On"
   - type: textarea
     id: steps
     attributes:
