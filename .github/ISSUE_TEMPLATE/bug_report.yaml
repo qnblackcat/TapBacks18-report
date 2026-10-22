@@ -1,0 +1,107 @@
+name: Bug report
+description: Something does not work (tapback missing, wrong message, crash, …)
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please fill in as much as you can. **Read the debug log before posting:** message text and
+        phone numbers/emails are replaced by their length, but check that nothing private is left.
+  - type: input
+    id: version
+    attributes:
+      label: Tapbacks18 version
+      description: From your package manager (Sileo, Zebra, …), e.g. 0.0.1~b1
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Your device and iOS version
+      description: e.g. iPhone 15 Pro, iOS 17.1.1
+    validations:
+      required: true
+  - type: dropdown
+    id: jailbreak
+    attributes:
+      label: Jailbreak
+      options:
+        - Dopamine (rootless)
+        - Dopamine (RootHide)
+        - RootHide (other)
+        - Rootless (other)
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: What is not working?
+      options:
+        - Sending an emoji tapback ("+" button, change, remove)
+        - Receiving an emoji tapback
+        - Emoji not shown, or shown on the wrong message
+        - Tapback sent to an iOS 18+ device
+        - Native emoji tapbacks setting / iMessage registration
+        - Settings page
+        - iMessage or Messages broke / crashes
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: other-device
+    attributes:
+      label: The other person's device and iOS version
+      description: e.g. iPhone 16, iOS 18.2 (without the tweak), or "iPhone with Tapbacks18, iOS 16.3"
+  - type: dropdown
+    id: target
+    attributes:
+      label: Type of message that was reacted to
+      options:
+        - Text
+        - Photo / video / file
+        - Group chat
+        - Other
+  - type: dropdown
+    id: native
+    attributes:
+      label: '"Native emoji tapbacks" in the tweak settings'
+      options:
+        - Off (default)
+        - On
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Long-press a message ...
+        2. Tap "+" ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: checkboxes
+    id: tried
+    attributes:
+      label: Already tried
+      options:
+        - label: Settings → Tapbacks18 → Restart imagent and Restart Messages
+        - label: Reinstalled the tweak and respringed / rebooted userspace
+        - label: Disabled other Messages / iMessage tweaks
+  - type: textarea
+    id: log
+    attributes:
+      label: Debug log
+      description: |
+        Settings → Tapbacks18 → Debug → turn on **Enable Debug** → reproduce the problem once → **Copy debug log** → paste here.
+        If it is long, attach it as a .txt file instead.
+      render: text
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or other information
+      description: Screenshots or screen recordings help a lot. Other tweaks installed that touch Messages / iMessage?
